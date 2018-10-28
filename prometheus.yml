@@ -1,6 +1,23 @@
 - name: Deploy Prometheus Node Exporter
   hosts: all
   tasks:
-    - name: Get Node Exporter from prometheus GitHu 
+    - name: Get Node Exporter from prometheus GitHub
       debug:
-        msg: "Hello World!"
+        msg: "start Prometheus Node Exporter deployment"
+
+    - name: Create temporary Working directory
+      file: path=/tmp/workingDir state=directory 
+
+    - name: Download Node Exporter Tarball
+      get_url:
+        url: https://github.com/prometheus/node_exporter/releases/download/v*/node_exporter-*.*-amd64.tar.gz
+        dest: /tmp/workingDir/install.tar.gz
+        mode: 0755 
+
+    - name: Unpackage
+      unarchive:
+	src: /tmp/workingDir/install.tar.gz
+        dest: /tmp/workingDir/installDir
+
+   - name: Launch Prometheus on Node
+     shell: /tmp/workingDir/installDir/node_exporter
