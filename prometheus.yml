@@ -19,5 +19,5 @@
         src: /tmp/workingDir/install.tar.gz
         dest: /tmp/workingDir/installDir
 
-   - name: Launch Prometheus on Node
-     shell: /tmp/workingDir/installDir/node_exporter
+    - name: Launch Prometheus on Node
+      shell: /tmp/workingDir/installDir/node_exporter
