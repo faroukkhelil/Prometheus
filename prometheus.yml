@@ -1,5 +1,10 @@
 - name: Deploy Prometheus Node Exporter
   hosts: all
+  - name: Removing
+    file:
+      path: "/tmp/workingDir/"
+      state: absent
+
   tasks:
     - name: Get Node Exporter from prometheus GitHub
       debug:
