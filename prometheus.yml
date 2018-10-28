@@ -1,6 +1,6 @@
-- name: Hello World Sample
+- name: Deploy Prometheus Node Exporter
   hosts: all
   tasks:
-    - name: Hello Message
+    - name: Get Node Exporter from prometheus GitHu 
       debug:
         msg: "Hello World!"
