@@ -2,10 +2,10 @@
   hosts: all
 
   tasks:
-  - name: Removing
-    file:
-      path: "/tmp/workingDir/"
-      state: absent
+    - name: Removing
+      file:
+        path: "/tmp/workingDir/"
+        state: absent
 
     - name: Get Node Exporter from prometheus GitHub
       debug:
