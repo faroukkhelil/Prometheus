@@ -1,0 +1,4 @@
+# This role deploys the mongod processes and sets up the replication set.
+
+- name: test ansible Tower
+  exec : echo "Hello World"
